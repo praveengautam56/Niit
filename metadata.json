@@ -1,5 +1,5 @@
 {
-  "name": "Quiz Blackbox",
+  "name": "Quiz Blackbox {{Git}}",
   "description": "ये एप्लिकेशन उपयोग के लिए तैयार है, अभी वर्तमान v1.0 में है\nइस application को नए सिरे से अपडेट करें, हमेसा संभल कर करे।\nइसको पहले प्राथमिकता में Xiomi, Vivo, Oppo के App store पर डाला जाए",
   "requestFramePermissions": []
 }

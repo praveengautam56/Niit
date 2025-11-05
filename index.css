@@ -2096,392 +2096,97 @@ input:checked + .toggle-slider:before {
 
 .book-category-title {
     font-size: 1.5rem;
-    font-weight: 600;
+}
+
+/* ==========================================================================
+   15. Syllabus View
+   ========================================================================== */
+.dashboard-container:has(.syllabus-container) {
+    max-width: 100%;
+}
+
+.syllabus-container {
+  width: 100%;
+  background: var(--light-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.syllabus-content {
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.syllabus-block {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    margin-bottom: 1.5rem;
+}
+
+.syllabus-block-title {
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--primary-blue-dark);
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--primary-blue);
-}
-
-.book-list-container {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    align-items: stretch;
-}
-
-.book-content {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1rem;
-    justify-content: space-between;
-    background-color: var(--white);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-}
-
-/* This targets the Read button inside the BookView */
-.book-content .quiz-card-button {
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-    text-align: center;
-}
-
-.book-content .quiz-card-button:disabled,
-.book-content .quiz-card-button.disabled {
-    background-color: #9fa8da;
-    cursor: not-allowed;
-    border-color: #9fa8da;
-}
-
-.book-item-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    align-items: center;
     gap: 0.5rem;
 }
 
-.book-image-container {
-    position: relative;
-    width: 100%;
-    line-height: 0;
-}
-
-.book-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.book-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    text-align: left;
-    line-height: 1.4;
-    height: 2.8em; /* Allow for 2 lines */
-    overflow: hidden;
-    /* For multiline ellipsis */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.book-label {
-    padding: 3px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background-color: transparent;
-    border: 2px dashed;
-    box-shadow: none;
-}
-
-.book-label.new {
-    background-color: transparent;
-    border-color: var(--success-text);
-    color: var(--success-text);
-}
-
-.book-label.old {
-    background-color: transparent;
-    border-color: var(--text-light);
-    color: var(--text-light);
-}
-
-/* ==========================================================================
-   15. Shorts View
-   ========================================================================== */
-.shorts-view-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: calc(100% + 2rem);
-    margin: -1rem;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    background-color: #000;
-}
-
-.short-item {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-}
-
-.video-player-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-}
-
-.video-player-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.placeholder-text {
-    padding: 2rem;
-    text-align: center;
-    color: var(--text-light);
-    font-size: 1rem;
-}
-
-/* ==========================================================================
-   16. Admission Form
-   ========================================================================== */
-.admission-form-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--light-bg);
-  z-index: 1001; /* Above everything else */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-y: auto;
-}
-
-.admission-form-content {
-  width: 100%;
-  max-width: 420px;
-  background: var(--white);
-  padding: 1.5rem;
-  min-height: 100%;
-}
-
-.admission-form-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.admission-form-header h1 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--primary-blue-dark);
-  margin: 0;
-}
-
-.admission-form-header p {
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
-.admission-form-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.form-group {
-  margin-bottom: 1.2rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group input[type="tel"],
-.form-group input[type="email"],
-.form-group input[type="number"],
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fcfdff;
-  color: #000;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(48, 63, 159, 0.1);
-}
-
-.radio-group {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 0.25rem;
-}
-
-.radio-label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-/* ==========================================================================
-   17. Old Papers View
-   ========================================================================== */
-.question-paper-view {
-    padding: 1rem;
-    overflow-y: auto;
-    flex-grow: 1;
-    background-color: var(--light-bg);
-}
-
-.question-paper-block {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 1.5rem;
-    padding-bottom: 3rem; /* Space for counter */
-    margin-bottom: 1rem;
-    border: 1px solid var(--border-color);
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.question-paper-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.6;
-    color: var(--text-dark);
-}
-
-.question-paper-options {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.question-paper-option {
-    padding: 0.9rem 1rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background-color: #fcfdff;
-}
-
-.question-paper-option.correct-option {
-    background-color: #e7f4e8; /* Lighter green similar to image */
-    border-color: #a5d6a7;
-    font-weight: 500;
-}
-
-.option-indicator {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid #bdc3c7; /* Grey border for radio */
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--white);
-}
-
-.correct-option .option-indicator {
-    background-color: var(--success-text);
-    border-color: var(--success-text);
-}
-
-.correct-option .check-icon {
-    fill: var(--white);
-    width: 16px;
-    height: 16px;
-}
-
-.question-paper-counter {
-    position: absolute;
-    bottom: 1rem;
-    right: 1.5rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   18. Videos View
-   ========================================================================== */
-.videos-view-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.video-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.video-item-title {
+.syllabus-block-title::before {
+    content: '🔹';
     font-size: 1.2rem;
+}
+
+.syllabus-chapter {
+    margin-bottom: 1.5rem;
+}
+
+.syllabus-chapter:last-child {
+    margin-bottom: 0;
+}
+
+.syllabus-chapter-title {
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--text-dark);
-    padding: 0 0.25rem;
+    margin-bottom: 0.75rem;
 }
 
-.video-player-wrapper {
+.syllabus-topic-list {
+    list-style: none;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.syllabus-topic-list li {
+    font-size: 1rem;
+    color: var(--text-light);
     position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    line-height: 1.6;
 }
 
-.video-player-wrapper iframe {
+.syllabus-topic-list li::before {
+    content: '•';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    left: -1.2rem;
+    color: var(--primary-blue);
+    font-weight: 700;
 }
 
-.video-item-divider {
-    border: none;
-    height: 1px;
-    background-color: var(--border-color);
-    margin-top: 1rem;
+.syllabus-coming-soon {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 2rem;
 }

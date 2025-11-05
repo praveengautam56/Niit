@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import OldPapersView, { papers } from './OldPapersView';
+import RscitSyllabusView from './RscitSyllabusView';
 import { BackArrowIcon, OldPaperIcon, QuestionsListIcon, VideoIcon, BookIcon } from './icons';
 
 interface Category {
@@ -36,8 +37,9 @@ const StreamDetailView: React.FC<StreamDetailViewProps> = ({ streamName, onBack 
                 if (snapshot.exists()) {
                     categories.forEach(category => {
                         if (streamName === 'RS-CIT' && category.key === 'oldPapers') {
-                            // For RS-CIT old papers, use the hardcoded data length
                             counts[category.key] = papers.length;
+                        } else if (streamName === 'RS-CIT' && category.key === 'syllabus') {
+                             counts[category.key] = 1; // Indicate syllabus exists
                         } else {
                             counts[category.key] = snapshot.child(category.key).numChildren();
                         }
@@ -47,7 +49,10 @@ const StreamDetailView: React.FC<StreamDetailViewProps> = ({ streamName, onBack 
                     categories.forEach(category => {
                         if (streamName === 'RS-CIT' && category.key === 'oldPapers') {
                             counts[category.key] = papers.length;
-                        } else {
+                        } else if (streamName === 'RS-CIT' && category.key === 'syllabus') {
+                            counts[category.key] = 1; 
+                        }
+                        else {
                             counts[category.key] = 0;
                         }
                     });
@@ -59,7 +64,10 @@ const StreamDetailView: React.FC<StreamDetailViewProps> = ({ streamName, onBack 
                 categories.forEach(category => {
                      if (streamName === 'RS-CIT' && category.key === 'oldPapers') {
                         counts[category.key] = papers.length;
-                    } else {
+                    } else if (streamName === 'RS-CIT' && category.key === 'syllabus') {
+                        counts[category.key] = 1;
+                    }
+                    else {
                         counts[category.key] = 0;
                     }
                 });
@@ -73,13 +81,22 @@ const StreamDetailView: React.FC<StreamDetailViewProps> = ({ streamName, onBack 
     }, [streamName]);
 
     const handleCategoryClick = (categoryKey: string) => {
-        if (streamName === 'RS-CIT' && categoryKey === 'oldPapers') {
-            setActiveCategory('oldPapers');
-        } else {
-            alert(`${categoryKey} for ${streamName} is coming soon!`);
+        if (streamName === 'RS-CIT') {
+            if (categoryKey === 'syllabus') {
+                setActiveCategory('syllabus');
+                return;
+            }
+            if (categoryKey === 'oldPapers') {
+                setActiveCategory('oldPapers');
+                return;
+            }
         }
+        alert(`${categoryKey} for ${streamName} is coming soon!`);
     };
 
+    if (activeCategory === 'syllabus') {
+        return <RscitSyllabusView onBack={() => setActiveCategory(null)} />;
+    }
     if (activeCategory === 'oldPapers') {
         return <OldPapersView streamName={streamName} onBack={() => setActiveCategory(null)} />;
     }
