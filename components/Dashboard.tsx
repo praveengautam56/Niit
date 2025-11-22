@@ -403,28 +403,28 @@ const Dashboard = ({ userRole }: { userRole: string | null }) => {
                         onClick={() => handleTabClick('home')}
                         aria-label="Home"
                     >
-                        <HomeIcon />
+                        <span>Home</span>
                     </button>
                     <button 
                         className={`tab-item ${activeTab === 'my-library' ? 'active' : ''}`}
                         onClick={() => handleTabClick('my-library')}
-                        aria-label="My Library"
+                        aria-label="My library"
                     >
-                        <LibraryIcon />
+                        <span>My library</span>
                     </button>
                     <button 
                         className={`tab-item ${activeTab === 'daily-quiz' ? 'active' : ''}`}
                         onClick={() => handleTabClick('daily-quiz')}
-                        aria-label="Daily Quiz"
+                        aria-label="Quiz"
                     >
-                        <CalendarIcon />
+                        <span>Quiz</span>
                     </button>
                     <button 
                         className={`tab-item ${activeTab === 'doubts' ? 'active' : ''}`}
                         onClick={() => handleTabClick('doubts')}
-                        aria-label="Doubts"
+                        aria-label="Chat"
                     >
-                        <ChatIcon />
+                        <span>Chat</span>
                     </button>
                     {isAdmin && (
                         <button 
@@ -432,7 +432,7 @@ const Dashboard = ({ userRole }: { userRole: string | null }) => {
                             onClick={() => handleTabClick('admin')}
                             aria-label="Admin"
                         >
-                            <CrownIcon />
+                            <span>Admin</span>
                         </button>
                     )}
                 </div>
